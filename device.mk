@@ -86,6 +86,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/wifi/wpa_supplicant_wcn.conf:system/etc/wifi/wpa_supplicant_wcn.conf \
 	$(LOCAL_PATH)/wifi/wpa_supplicant_ath6kl.conf:system/etc/wifi/wpa_supplicant_ath6kl.conf \
+	$(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+	$(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	$(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
 	$(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
 
 PRODUCT_COPY_FILES += \
@@ -131,6 +134,11 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
+
+# Pre-Jars
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/cneapiclient.jar:system/framework/cneapiclient.jar \
+	$(LOCAL_PATH)/configs/qcmediaplayer.jar:system/framework/qcmediaplayer.jar
 	
 # Extended media support
 PRODUCT_PACKAGES += \

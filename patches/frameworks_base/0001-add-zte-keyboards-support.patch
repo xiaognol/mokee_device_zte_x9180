@@ -1,0 +1,57 @@
+From e5e0ece6ec4347359e34d29a15c93ea9deef3ab3 Mon Sep 17 00:00:00 2001
+From: xiaognol <317065820@qq.com>
+Date: Tue, 7 Oct 2014 02:47:03 +0800
+Subject: [PATCH] add zte keyboards support
+
+Change-Id: I2f3768e699ec93337835168a6b91b63e4b783947
+Signed-off-by: xiaognol <317065820@qq.com>
+---
+ data/keyboards/Generic.kl | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+ mode change 100644 => 100755 data/keyboards/Generic.kl
+
+diff --git a/data/keyboards/Generic.kl b/data/keyboards/Generic.kl
+old mode 100644
+new mode 100755
+index 1413319..68e35f3
+--- a/data/keyboards/Generic.kl
++++ b/data/keyboards/Generic.kl
+@@ -121,7 +121,10 @@ key 98    NUMPAD_DIVIDE
+ key 99    SYSRQ
+ key 100   ALT_RIGHT
+ # key 101 "KEY_LINEFEED"
+-key 102   MOVE_HOME
++#/* ZTEMT Modify by luochangyang, 2013/03/27 */
++#key 102   MOVE_HOME
++key 102   HOME              VIRTUAL
++#/* ZTEMT END */
+ key 103   DPAD_UP
+ key 104   PAGE_UP
+ key 105   DPAD_LEFT
+@@ -158,7 +161,10 @@ key 128   MEDIA_STOP
+ # key 136 "KEY_FIND"
+ # key 137 "KEY_CUT"
+ # key 138 "KEY_HELP"
+-key 139   MENU              WAKE_DROPPED
++#/* ZTEMT Modify by luochangyang, 2013/06/04 */
++#key 139   MENU              WAKE_DROPPED
++key 139   MENU              VIRTUAL
++#/* ZTEMT END */
+ key 140   CALCULATOR
+ # key 141 "KEY_SETUP"
+ key 142   POWER             WAKE
+@@ -177,7 +183,10 @@ key 152   POWER             WAKE
+ key 155   ENVELOPE
+ key 156   BOOKMARK
+ # key 157 "KEY_COMPUTER"
+-key 158   BACK              WAKE_DROPPED
++#/* ZTEMT Modify by luochangyang, 2013/06/04 */
++#key 158   BACK              WAKE_DROPPED
++key 158   BACK              VIRTUAL
++#/* ZTEMT END */
+ key 159   FORWARD
+ key 160   MEDIA_CLOSE
+ key 161   MEDIA_EJECT
+-- 
+1.8.3.2
+
