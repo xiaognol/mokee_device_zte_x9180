@@ -304,9 +304,6 @@ PRODUCT_PACKAGES += \
 # Spn config
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
-	
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
