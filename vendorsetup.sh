@@ -13,5 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+mkdir -p out/target/product/x9180/obj/KERNEL_OBJ
+cp -rf device/zte/x9180/pre-kernel/* out/target/product/x9180/obj/KERNEL_OBJ/
+sh device/zte/x9180/patches/apply.sh
 add_lunch_combo mk_x9180-userdebug
 

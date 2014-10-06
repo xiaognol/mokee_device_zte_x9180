@@ -29,12 +29,7 @@ TARGET_OTA_ASSERT_DEVICE := x9180
 
 #kernel
 #ifneq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_PRIVATE_PATH := $(LOCAL_PATH)/pre-kernel
-KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
-TARGET_PREBUILT_KERNEL_INCLUDE:=$(KERNEL_OUT)
-$(TARGET_PREBUILT_KERNEL_INCLUDE):
-	mkdir -p $(KERNEL_OUT)
-	-cp -rf $(LOCAL_PRIVATE_PATH)/* $(KERNEL_OUT)/
+
 #endif
 #ifneq ($(TARGET_PREBUILT_KERNEL),)
 PRODUCT_COPY_FILES += \
@@ -56,7 +51,7 @@ PRODUCT_PACKAGES += \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
     keystore.msm8226 \
-    lights.msm8226 \
+    #lights.msm8226 \
     memtrack.msm8226 \
     power.msm8226 \
     liboverlay
@@ -65,6 +60,9 @@ PRODUCT_PACKAGES += \
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
+    audio.a2dp.default \
+    audio.r_submix.default \
+    audio.usb.default \
     audio_policy.msm8226 \
     audio.primary.msm8226 \
     libaudio-resampler \
@@ -253,7 +251,33 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/idc/cyttsp4_mt.idc:system/usr/idc/cyttsp4_mt.idc \
 	$(LOCAL_PATH)/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
 	$(LOCAL_PATH)/idc/qwerty.idc:system/usr/idc/qwerty.idc
-     
+
+# Modules
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/modules/ansi_cprng.ko:system/lib/modules/ansi_cprng.ko \
+	$(LOCAL_PATH)/modules/coresight-event.ko:system/lib/modules/coresight-event.ko \
+	$(LOCAL_PATH)/modules/dma_test.ko:system/lib/modules/dma_test.ko \
+	$(LOCAL_PATH)/modules/evbug.ko:system/lib/modules/evbug.ko \
+	$(LOCAL_PATH)/modules/gpio_axis.ko:system/lib/modules/gpio_axis.ko \
+	$(LOCAL_PATH)/modules/gpio_event.ko:system/lib/modules/gpio_event.ko \
+	$(LOCAL_PATH)/modules/gpio_input.ko:system/lib/modules/gpio_input.ko \
+	$(LOCAL_PATH)/modules/gpio_matrix.ko:system/lib/modules/gpio_matrix.ko\
+	$(LOCAL_PATH)/modules/gpio_output.ko:system/lib/modules/gpio_output.ko \
+	$(LOCAL_PATH)/modules/gspca_main.ko:system/lib/modules/gspca_main.ko \
+	$(LOCAL_PATH)/modules/mcdrvmodule.ko:system/lib/modules/mcdrvmodule.ko \
+	$(LOCAL_PATH)/modules/mckernelapi.ko:system/lib/modules/mckernelapi.ko \
+	$(LOCAL_PATH)/modules/mmc_block_test.ko:system/lib/modules/mmc_block_test.ko \
+	$(LOCAL_PATH)/modules/mmc_test.ko:system/lib/modules/mmc_test.ko \
+	$(LOCAL_PATH)/modules/msm-buspm-dev.ko:system/lib/modules/msm-buspm-dev.ko \
+	$(LOCAL_PATH)/modules/oprofile.ko:system/lib/modules/oprofile.ko \
+	$(LOCAL_PATH)/modules/qcedev.ko:system/lib/modules/qcedev.ko \
+	$(LOCAL_PATH)/modules/qcrypto.ko:system/lib/modules/qcrypto.ko \
+	$(LOCAL_PATH)/modules/rdbg.ko:system/lib/modules/rdbg.ko \
+	$(LOCAL_PATH)/modules/reset_modem.ko:system/lib/modules/reset_modem.ko \
+	$(LOCAL_PATH)/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
+	$(LOCAL_PATH)/modules/spidev.ko:system/lib/modules/spidev.ko \
+	$(LOCAL_PATH)/modules/test-iosched.ko:system/lib/modules/test-iosched.ko
+    
 # Thermald
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf

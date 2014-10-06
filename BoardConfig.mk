@@ -143,8 +143,7 @@ TARGET_POWERHAL_VARIANT				:= qcom
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # LightHAL
-TARGET_PROVIDES_LIBLIGHT 			:= true
-
+TARGET_PROVIDES_LIBLIGHT := true
 
 #kernel
 TARGET_BOARD_INFO_FILE := device/zte/x9180/board-info.txt
@@ -167,6 +166,9 @@ BOARD_KERNEL_SEPARATED_DT := true
 
 #ifneq ($(TARGET_PREBUILT_KERNEL),)
 BOARD_CUSTOM_BOOTIMG_MK := device/zte/x9180/mkbootimg_pre.mk
+
+
+
 #TARGET_KERNEL_SOURCE := ../test/armani
 #TARGET_KERNEL_SOURCE := /home/zjl/android/android_kernel_zte_u9180X
 #TARGET_KERNEL_CONFIG := X9180_defconfig
