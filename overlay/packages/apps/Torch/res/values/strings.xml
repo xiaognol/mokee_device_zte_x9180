@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flashDevice">/sys/class/leds/torch-light/brightness</string>
+</resources>

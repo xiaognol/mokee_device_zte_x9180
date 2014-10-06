@@ -19,7 +19,7 @@
 
 <resources>
     <!-- If there is no sysfs-based control mechanism, enable this -->
-    <bool name="useCameraInterface">true</bool>
+    <bool name="useCameraInterface">false</bool>
 
     <!-- Low setting -->
     <integer name="valueLow">50</integer>
