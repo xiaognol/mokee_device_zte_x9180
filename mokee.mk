@@ -16,7 +16,7 @@ $(call inherit-product, vendor/mk/config/cdma.mk)
 $(call inherit-product, vendor/mk/config/nfc_enhanced.mk)
 
 # Inherit some common Mokee stuff.
-$(call inherit-product, vendor/mk/config/common_full.mk)
+$(call inherit-product, vendor/mk/config/common_full_phone.mk)
 
 
 
