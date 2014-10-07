@@ -1,0 +1,56 @@
+From fbeec046647dfa463dabcd0d9e61eaae5a5e86ad Mon Sep 17 00:00:00 2001
+From: xiaognol <317065820@qq.com>
+Date: Tue, 12 Aug 2014 21:54:31 +0800
+Subject: [PATCH] multi-color network speed
+
+Change-Id: I6194d1f00632dca53c84cedcba852337c0059634
+Signed-off-by: xiaognol <317065820@qq.com>
+---
+ .../systemui/statusbar/policy/NetworkTraffic.java   | 21 ++++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/packages/SystemUIExt/src/com/android/systemui/statusbar/policy/NetworkTraffic.java b/packages/SystemUIExt/src/com/android/systemui/statusbar/policy/NetworkTraffic.java
+index a6e3f17..8bc80ed 100644
+--- a/packages/SystemUIExt/src/com/android/systemui/statusbar/policy/NetworkTraffic.java
++++ b/packages/SystemUIExt/src/com/android/systemui/statusbar/policy/NetworkTraffic.java
+@@ -41,6 +41,7 @@ import android.widget.TextView;
+ 
+ import com.android.systemui.R;
+ 
++import android.graphics.Color;
+ import org.mokee.util.MoKeeUtils;
+ 
+ /*
+@@ -135,12 +136,26 @@ public class NetworkTraffic extends TextView {
+         private String formatOutput(long timeDelta, long data, String symbol) {
+             long speed = (long)(data / (timeDelta / 1000F));
+             if (speed < KB) {
++	        // Add Multi-Color For Different speed White---ZJL
++		setTextColor(Color.parseColor("#FFFFFF"));
+                 return decimalFormat.format(speed) + symbol;
+-            } else if (speed < MB) {
++            } else if (speed < KB*50) {
++		// Add Multi-Color For Different speed White---ZJL
++		setTextColor(Color.parseColor("#FFFFFF"));
+                 return decimalFormat.format(speed / (float)KB) + 'K' + symbol;
+-            } else if (speed < GB) {
++	    } else if (speed < KB*100) {
++		// Add Multi-Color For Different speed Orange---ZJL
++		setTextColor(Color.parseColor("#FFE500"));
++                return decimalFormat.format(speed / (float)KB) + 'K' + symbol;
++	    } else if (speed < MB) {
++		// Add Multi-Color For Different speed Orange---ZJL
++		 setTextColor(Color.parseColor("#FF6600"));
++                 return decimalFormat.format(speed / (float)KB) + 'K' + symbol;
++             } else if (speed < GB) {
++		// Add Multi-Color For Different speed Red---ZJL
++		setTextColor(Color.parseColor("#FF3300"));
+                 return decimalFormat.format(speed / (float)MB) + 'M' + symbol;
+-            }
++            } 
+             return decimalFormat.format(speed / (float)GB) + 'G' + symbol;
+         }
+     };
+-- 
+1.8.3.2
+
