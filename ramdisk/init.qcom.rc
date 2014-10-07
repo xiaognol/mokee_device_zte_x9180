@@ -48,6 +48,8 @@ on init
     export SECONDARY_STORAGE /storage/sdcard1
     
 	# for backwards compatibility
+    symlink /sys/class/android_usb/android0/f_mass_storage/lun /lun0
+    symlink /sys/class/android_usb/android0/f_mass_storage/lun1 /lun1
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard1 /external_sd
     symlink /storage/sdcard0 /storage/sdcard
