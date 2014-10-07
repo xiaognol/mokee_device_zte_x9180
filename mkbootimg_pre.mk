@@ -26,5 +26,5 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	#@echo ----- Making recovery image ------
 	#$(hide) mkbootimg --kernel $(PRODUCT_OUT)/kernel --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --cmdline "$(BOARD_KERNEL_CMDLINE)" --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) $(BOARD_MKBOOTIMG_ARGS) -o $(INSTALLED_RECOVERYIMAGE_TARGET)
 	@echo ----- Made recovery image -------- $@
-	$(hide) $(DTBTOOL) --kernel $(LOCAL_PATH)/recovery/kernel --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --cmdline "console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3" --base 0x00000000 --offset 0x2000000 --dt $(LOCAL_PATH)/recovery/dt.img --pagesize 2048 --tags-addr 0x01E00000 -o $(PRODUCT_OUT)/recovery.img
+	$(hide) $(DTBTOOL) --kernel $(KERNEL) --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --cmdline "$(BOARD_KERNEL_CMDLINE)" --base $(BOARD_KERNEL_BASE) --offset 0x2000000 --dt $(DTB) --pagesize 2048 --tags-addr 0x01E00000 -o $(PRODUCT_OUT)/recovery.img
 	@echo ----- Added DTB ------------------ $@
